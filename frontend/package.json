@@ -1,0 +1,22 @@
+{
+  "name": "estufa-inteligente",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
+  },
+  "devDependencies": {
+    "eslint": "^9.33.0",
+    "vite": "^7.1.2"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.12",
+    "axios": "^1.11.0",
+    "tailwindcss": "^4.1.12"
+  }
+}
