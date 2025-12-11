@@ -34,10 +34,10 @@ export function dashboard() {
     }
   }
 
-  const socket = new CustomWebsocket("ws://192.168.201.136:81");
+  const socket = new CustomWebsocket("ws://10.167.107.1:81");
   async function main() {
     socket.onmessage = function (event) {
-      try {              
+      try {
         console.log("Mensagem recebida: " + event.data);
         const data = event.data.split(":");
         const msg = data[0] || "";
@@ -58,7 +58,7 @@ export function dashboard() {
             const offsetMs = -3 * 60 * 60 * 1000; // UTC-3
             const time = new Date(now.getTime() + offsetMs).getTime();
 
-            const maxPoints = 30; 
+            const maxPoints = 30;
             historyChart.series[0].addPoint([time, temp], false, historyChart.series[0].data.length >= maxPoints);
             historyChart.series[1].addPoint([time, hum], false, historyChart.series[1].data.length >= maxPoints);
             historyChart.redraw();
@@ -74,17 +74,17 @@ export function dashboard() {
           const control = document.getElementById(sensor);
           const isActive = data[0] === "1";
 
-        if (control) {
-          control.checked = isActive; // <-- Atualiza o botão
+          if (control) {
+            control.checked = isActive; // <-- Atualiza o botão
+          }
         }
-      }
 
       } catch (error) {
         console.error("Erro ao processar mensagem do socket:", error);
       }
     };
   }
-  
+
   // Função para enviar comando de relé (modo manual)
   function toggleRele(control) {
     const status = control.checked ? "1" : "0";
@@ -361,7 +361,7 @@ export function dashboard() {
   function toggleActuatorState(control, state) {
     const group = control.closest(".group");
     if (!group) return;
-    
+
     group.classList.toggle(IS_ACTIVE_CLASS, state);
   }
 
@@ -379,7 +379,7 @@ export function dashboard() {
     const control = document.getElementById("operation-mode");
     control.addEventListener("click", () => {
       sessionStorage.setItem("operation-mode", control.checked);
-      const newMode = control.checked? "auto" : "manual";
+      const newMode = control.checked ? "auto" : "manual";
       setMode(newMode);
     });
   }
