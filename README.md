@@ -54,7 +54,7 @@ A comunicação entre todos os componentes é feita via **WebSocket**. O servido
 - **ESLint** — qualidade de código
 
 ### Hardware
-- **ESP32** (Arduino framework)
+- **Arduino Nano ESP32** (Arduino framework)
 - **DHT22** — sensor de temperatura e umidade do ar
 - **Sensor capacitivo de umidade do solo**
 - **LDR** — sensor de luminosidade
