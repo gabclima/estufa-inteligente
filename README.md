@@ -1,4 +1,4 @@
-# 🌿 Estufa Inteligente
+# 🌱 Estufa Inteligente
 
 Sistema de monitoramento e controle de estufa agrícola com automação via IoT, desenvolvido com ESP32, servidor WebSocket em PHP e interface web moderna.
 
