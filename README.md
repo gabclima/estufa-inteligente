@@ -96,7 +96,7 @@ Entre na pasta do projeto
 cd estufa-inteligente
 ```
 
-O repositório já contém as três partes do projeto nas suas respectivas pastas: `backend/`, `frontend/` e `hardware/`. As bibliotecas do Arduino estão inclusas em `hardware/Bibliotecas Arduino/`, então não é necessário baixá-las separadamente, só se atente em importa-las no Arduino IDE, no caminho .
+O repositório já contém as três partes do projeto nas suas respectivas pastas: [`backend/`](backend), [`frontend/`](frontend) e [`hardware/`](hardware). As bibliotecas do Arduino estão inclusas em [`hardware/Bibliotecas Arduino/`](hardware/Bibliotecas%20Arduino), então não é necessário baixá-las separadamente, só se atente em importá-las no Arduino IDE, no caminho **Rascunho → Incluir Biblioteca → Adicionar biblioteca .ZIP**.
 
 ---
 
@@ -123,7 +123,7 @@ php websocket.php
 
 O servidor ficará escutando na porta `81`. Caso precise mudar, altere o valor de `81` para a porta desejada na linha abaixo. Você verá mensagens no terminal indicando novas conexões.
 
-> **Configuração de IP:** No arquivo `websocket.php`, localize a linha abaixo e substitua pelo IP da máquina onde o servidor está rodando:
+> **Configuração de IP:** No arquivo [`websocket.php`](backend/websocket.php), localize a linha abaixo e substitua pelo IP da máquina onde o servidor está rodando:
 > ```php
 > $app = new Ratchet\App("SEU_IP_AQUI", 81, "0.0.0.0");
 > ```
@@ -148,7 +148,7 @@ npm run dev
 
 Acesse a interface em `http://localhost:3000` (ou a porta exibida no terminal, por padrão é a porta `3000`).
 
-> **Configuração do WebSocket:** No arquivo `frontend/src/pages/dashboard.js`, atualize o endereço do servidor WebSocket:
+> **Configuração do WebSocket:** No arquivo [`frontend/src/pages/dashboard.js`](frontend/src/pages/dashboard.js), atualize o endereço do servidor WebSocket:
 > ```js
 > const socket = new CustomWebsocket("ws://SEU_IP_DO_SERVIDOR:81");
 > ```
@@ -160,8 +160,8 @@ npx eslint src/
 
 **Para adicionar novas páginas:**
 
-1. Crie o componente no diretório `src/pages/`.
-2. Importe-o em `src/main.js`.
+1. Crie o componente no diretório [`src/pages/`](frontend/src/pages).
+2. Importe-o em [`src/main.js`](frontend/src/main.js).
 3. Adicione a rota ao objeto `routes`:
 
 ```js
@@ -257,7 +257,7 @@ Para que o sistema funcione corretamente, os IPs devem ser configurados de forma
 
 | Arquivo                           | Variável/Linha                   | Valor esperado              |
 |-----------------------------------|----------------------------------|-----------------------------|
-| `backend/websocket.php`           | `new Ratchet\App(...)`           | IP da máquina do servidor   |
-| `frontend/src/pages/dashboard.js` | `new CustomWebsocket(...)`       | `ws://IP_DO_SERVIDOR:81`    |
-| `hardware/estufa.ino`             | `websocketServer`                | `ws://IP_DO_SERVIDOR:81`    |
-| `hardware/estufa.ino`             | `ssid` / `password`              | Credenciais do Wi-Fi        |
+| [`backend/websocket.php`](backend/websocket.php) | `new Ratchet\App(...)` | IP da máquina do servidor |
+| [`frontend/src/pages/dashboard.js`](frontend/src/pages/dashboard.js) | `new CustomWebsocket(...)` | `ws://IP_DO_SERVIDOR:81` |
+| [`hardware/estufa.ino`](hardware/estufa.ino) | `websocketServer` | `ws://IP_DO_SERVIDOR:81` |
+| [`hardware/estufa.ino`](hardware/estufa.ino) | `ssid` / `password` | Credenciais do Wi-Fi |
