@@ -121,7 +121,7 @@ Inicie o servidor WebSocket
 php websocket.php
 ```
 
-O servidor ficará escutando na porta **81**. Caso precise mudar, altere o valor de **81** para a porta desejada na linha abaixo. Você verá mensagens no terminal indicando novas conexões.
+O servidor ficará escutando na porta `81`. Caso precise mudar, altere o valor de `81` para a porta desejada na linha abaixo. Você verá mensagens no terminal indicando novas conexões.
 
 > **Configuração de IP:** No arquivo `websocket.php`, localize a linha abaixo e substitua pelo IP da máquina onde o servidor está rodando:
 > ```php
@@ -146,7 +146,7 @@ Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
-Acesse a interface em `http://localhost:3000` (ou a porta exibida no terminal, por padrão é a porta 3000).
+Acesse a interface em `http://localhost:3000` (ou a porta exibida no terminal, por padrão é a porta `3000`).
 
 > **Configuração do WebSocket:** No arquivo `frontend/src/pages/dashboard.js`, atualize o endereço do servidor WebSocket:
 > ```js
@@ -177,7 +177,7 @@ const routes = {
 
 ### 3. Hardware (Arduino/ESP32)
 
-1. Abra o arquivo `estufa.ino` localizado na pasta `hardware/` com a **Arduino IDE**.
+1. Abra o arquivo [`estufa.ino`](hardware//Código%20Arduino/estufa.ino) localizado na pasta [`hardware/Código Arduino`](hardware/Código%20Arduino) com a **Arduino IDE**.
 
 2. Importe as bibliotecas necessárias presentes na pasta [`hardware/Bibliotecas Arduino`](hardware/Bibliotecas%20Arduino):
 - [`DHT-sensor-library-master.zip`](hardware/Bibliotecas%20Arduino/DHT-sensor-library-master.zip)
