@@ -10,6 +10,7 @@ Sistema de monitoramento e controle de estufa agrícola com automação via IoT,
 - [Arquitetura](#arquitetura)
 - [Tecnologias](#tecnologias)
 - [Pré-requisitos](#pré-requisitos)
+- [Clonando o Repositório](#clonando-o-repositório)
 - [Como Rodar o Projeto](#como-rodar-o-projeto)
   - [1. Backend (PHP WebSocket)](#1-backend-php-websocket)
   - [2. Frontend (Interface Web)](#2-frontend-interface-web)
@@ -29,7 +30,7 @@ A **Estufa Inteligente** é um sistema IoT para automação e monitoramento de e
 ## Arquitetura
 
 ```
-[ESP32 + Sensores] ←──WebSocket──→ [Servidor PHP] ←──WebSocket──→ [Interface Web]
+[ESP32 + Sensores] <──WebSocket──> [Servidor PHP] <──WebSocket──> [Interface Web]
 ```
 
 A comunicação entre todos os componentes é feita via **WebSocket**. O servidor PHP atua como um hub central, retransmitindo as mensagens recebidas para todos os clientes conectados.
@@ -60,18 +61,43 @@ A comunicação entre todos os componentes é feita via **WebSocket**. O servido
 
 ## Pré-requisitos
 
-Certifique-se de ter instalado:
+Certifique-se de ter instalado antes de começar:
 
-- **PHP** >= 7.4
-- **Composer** (gerenciador de dependências PHP)
-- **Node.js** >= 18 e **npm**
-- **Arduino IDE** (ou PlatformIO) com suporte ao ESP32
+| Ferramenta | Versão mínima | Download |
+|---|---|---|
+| **PHP** | 7.4 | [php.net](https://www.php.net/downloads) |
+| **Composer** | qualquer | [getcomposer.org](https://getcomposer.org/) |
+| **Node.js** | 18.x | [nodejs.org](https://nodejs.org/) |
+| **npm** | incluído com Node.js | — |
+| **Arduino IDE** | 2.x | [arduino.cc](https://www.arduino.cc/en/software) |
+
+> 💡 Para verificar as versões instaladas:
+> ```bash
+> php -v
+> composer -V
+> node -v
+> npm -v
+> ```
+
+---
+
+## Clonando o Repositório
+
+```bash
+# Clone o repositório
+git clone https://github.com/gabclima/estufa-inteligente.git
+
+# Entre na pasta do projeto
+cd estufa-inteligente
+```
+
+O repositório já contém as três partes do projeto nas suas respectivas pastas: `backend/`, `frontend/` e `hardware/`. As bibliotecas do Arduino estão inclusas em `hardware/Bibliotecas Arduino/`, então não é necessário baixá-las separadamente, só se atente em importa-las no Arduino IDE, no caminho .
 
 ---
 
 ## Como Rodar o Projeto
 
-> ⚠️ **Importante:** Caso for rodar o projeto por fins didáticos demonstrativo, certifique-se de que o backend, o frontend e o ESP32 estejam na na mesma rede local. Ajuste os endereços IP nas configurações antes de iniciar. Ou para uso mais avançado em que esteja separado a estufa do servidor, certifique-se de que os endereços IP estejam apontados corretamente.
+> ⚠️ **Importante:** Caso for rodar o projeto por fins didáticos demonstrativos, certifique-se de que o backend, o frontend e o ESP32 estejam na mesma rede local. Ajuste os endereços IP nas configurações antes de iniciar. Ou para uso mais avançado em que esteja separado a estufa do servidor, certifique-se de que os endereços IP estejam apontados corretamente.
 
 ### 1. Backend (PHP WebSocket)
 
@@ -88,7 +114,7 @@ composer install
 php websocket.php
 ```
 
-O servidor ficará escutando na porta **81**, caso precise mudar, altere o valor de **81** para a porta desejada na linha abaixo. Você verá mensagens no terminal indicando novas conexões.
+O servidor ficará escutando na porta **81**. Caso precise mudar, altere o valor de **81** para a porta desejada na linha abaixo. Você verá mensagens no terminal indicando novas conexões.
 
 > **Configuração de IP:** No arquivo `websocket.php`, localize a linha abaixo e substitua pelo IP da máquina onde o servidor está rodando:
 > ```php
@@ -147,8 +173,10 @@ const routes = {
    - `DHT-sensor-library-master.zip`
    - `ArduinoWebsockets-master.zip`
 
+   > No Arduino IDE: **Sketch → Incluir Biblioteca → Adicionar biblioteca .ZIP** e selecione cada arquivo.
+
 3. Atualize as credenciais de rede e o endereço do servidor no início do código:
- 
+
 ```cpp
 const char* ssid     = "NOME_DA_SUA_REDE";
 const char* password = "SENHA_DA_REDE";
@@ -189,30 +217,33 @@ const char* websocketServer = "ws://IP_DO_SERVIDOR:81";
 
 ```
 estufa-inteligente/
-├── backend/           # Servidor WebSocket em PHP
-│   ├── webscoket.php
-│   └── vendor/        # Dependências (gerado pelo Composer)
-├── frontend/          # Interface web
+├── backend/                        # Servidor WebSocket em PHP
+│   ├── websocket.php
+│   └── vendor/                     # Dependências (gerado pelo Composer)
+├── frontend/                       # Interface web
 │   ├── src/
-│   │   ├── pages/     # Páginas da aplicação
+│   │   ├── pages/                  # Páginas da aplicação
 │   │   │   └── dashboard.js
-│   │   ├── constants/ # Constantes e rotas
-│   │   └── main.js    # Ponto de entrada e roteamento
+│   │   ├── constants/              # Constantes e rotas
+│   │   └── main.js                 # Ponto de entrada e roteamento
 │   ├── package.json
 │   └── vite.config.js
-└── hardware/          # Código do ESP32 (Arduino)
-    └── estufa.ino
+└── hardware/                       # Código do ESP32 (Arduino)
+    ├── estufa.ino
+    └── Bibliotecas Arduino/        # Bibliotecas prontas para importar
+        ├── DHT-sensor-library-master.zip
+        └── ArduinoWebsockets-master.zip
 ```
 
 ---
 
 ## Configuração de Rede
 
-Para que o sistema funcione corretamente, todos os três componentes devem estar na **mesma rede local** e os IPs devem ser configurados de forma consistente:
+Para que o sistema funcione corretamente, os IPs devem ser configurados de forma consistente em todos os componentes:
 
-| Arquivo                          | Variável/Linha                  | Valor esperado              |
-|----------------------------------|---------------------------------|-----------------------------|
-| `backend/server.php`             | `new Ratchet\App(...)`          | IP da máquina do servidor   |
-| `frontend/src/pages/dashboard.js`| `new CustomWebsocket(...)`      | `ws://IP_DO_SERVIDOR:81`    |
-| `hardware/estufa.ino`            | `websocketServer`               | `ws://IP_DO_SERVIDOR:81`    |
-| `hardware/estufa.ino`            | `ssid` / `password`             | Credenciais do Wi-Fi        |
+| Arquivo                           | Variável/Linha                   | Valor esperado              |
+|-----------------------------------|----------------------------------|-----------------------------|
+| `backend/websocket.php`           | `new Ratchet\App(...)`           | IP da máquina do servidor   |
+| `frontend/src/pages/dashboard.js` | `new CustomWebsocket(...)`       | `ws://IP_DO_SERVIDOR:81`    |
+| `hardware/estufa.ino`             | `websocketServer`                | `ws://IP_DO_SERVIDOR:81`    |
+| `hardware/estufa.ino`             | `ssid` / `password`              | Credenciais do Wi-Fi        |
