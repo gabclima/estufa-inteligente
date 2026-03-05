@@ -214,6 +214,7 @@ const char* websocketServer = "ws://IP_DO_SERVIDOR:81";
 <div align="left">
   <img src="docs/EstufaLigacao.png" alt="Diagrama de Ligação Elétrica" width="700"/>
 </div>
+
 ---
 
 ## Funcionalidades
