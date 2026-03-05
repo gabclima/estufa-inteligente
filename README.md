@@ -29,7 +29,7 @@ A **Estufa Inteligente** é um sistema IoT para automação e monitoramento de e
 
 ## Arquitetura
 
-<p align="center">
+<p>
   <img src="docs/DiagramaComunicacao.png" alt="Diagrama de Arquitetura" width="700"/>
 </p>
 
