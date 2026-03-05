@@ -108,14 +108,16 @@ O repositório já contém as três partes do projeto nas suas respectivas pasta
 
 O servidor WebSocket é responsável por intermediar a comunicação entre o frontend e o hardware.
 
+Entre na pasta do backend
 ```bash
-# Entre na pasta do backend
 cd backend
-
-# Instale as dependências PHP
+```
+Instale as dependências PHP
+```bash
 composer install
-
-# Inicie o servidor WebSocket
+```
+Inicie o servidor WebSocket
+```bash
 php websocket.php
 ```
 
@@ -130,14 +132,17 @@ O servidor ficará escutando na porta **81**. Caso precise mudar, altere o valor
 
 ### 2. Frontend (Interface Web)
 
+Entre na pasta do frontend
 ```bash
-# Entre na pasta do frontend
 cd frontend
-
-# Instale as dependências
+```
+Instale as dependências
+```bash
 npm install
+```
 
-# Inicie o servidor de desenvolvimento
+Inicie o servidor de desenvolvimento
+```bash
 npm run dev
 ```
 
