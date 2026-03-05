@@ -183,7 +183,7 @@ const routes = {
 - [`DHT-sensor-library-master.zip`](hardware/Bibliotecas%20Arduino/DHT-sensor-library-master.zip)
 - [`ArduinoWebsockets-master.zip`](hardware/Bibliotecas%20Arduino/ArduinoWebsockets-master.zip)
 
-   > No Arduino IDE: **Sketch → Incluir Biblioteca → Adicionar biblioteca .ZIP** e selecione cada arquivo.
+   > No Arduino IDE: **Rascunho → Incluir Biblioteca → Adicionar biblioteca .ZIP** e selecione cada arquivo.
 
 3. Atualize as credenciais de rede e o endereço do servidor no início do código:
 
