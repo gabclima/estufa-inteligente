@@ -30,7 +30,7 @@ A **Estufa Inteligente** é um sistema IoT para automação e monitoramento de e
 ## Arquitetura
 
 <div align="left">
-  <img src="docs/DiagramaComunicacao.png" alt="Diagrama de Arquitetura" width="500"/>
+  <img src="docs/DiagramaComunicacao.png" alt="Diagrama de Arquitetura" width="700"/>
 </div>
 
 ```
@@ -209,6 +209,11 @@ const char* websocketServer = "ws://IP_DO_SERVIDOR:81";
 | Relé 3 (Iluminação)     | 5          |
 | Relé 4                  | 6          |
 
+**Diagrama de ligação elétrica:**
+
+<div align="left">
+  <img src="docs/EstufaLigacao.png" alt="Diagrama de Ligação Elétrica" width="700"/>
+</div>
 ---
 
 ## Funcionalidades
