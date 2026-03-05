@@ -202,8 +202,6 @@ const char* websocketServer = "ws://IP_DO_SERVIDOR:81";
 | Sensor DHT22            | 10         |
 | Sensor de Umidade Solo  | A0         |
 | Sensor LDR              | A4         |
-| LED                     | 12         |
-| Botão                   | 0          |
 | Relé 1 (Irrigação)      | 8          |
 | Relé 2 (Ventilação)     | 7          |
 | Relé 3 (Iluminação)     | 5          |
