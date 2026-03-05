@@ -243,7 +243,8 @@ estufa-inteligente/
 │   ├── package.json
 │   └── vite.config.js
 └── hardware/                       # Código do ESP32 (Arduino)
-    ├── estufa.ino
+    ├── Código Arduino/             # Código principal do ESP32
+    │   └── estufa.ino
     └── Bibliotecas Arduino/        # Bibliotecas prontas para importar
         ├── DHT-sensor-library-master.zip
         └── ArduinoWebsockets-master.zip
