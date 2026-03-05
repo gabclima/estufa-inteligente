@@ -29,6 +29,10 @@ A **Estufa Inteligente** é um sistema IoT para automação e monitoramento de e
 
 ## Arquitetura
 
+<p align="center">
+  <img src="docs/DiagramaComunicacao.png" alt="Diagrama de Arquitetura" width="700"/>
+</p>
+
 ```
 [ESP32 + Sensores] <──WebSocket──> [Servidor PHP] <──WebSocket──> [Interface Web]
 ```
@@ -83,11 +87,12 @@ Certifique-se de ter instalado antes de começar:
 
 ## Clonando o Repositório
 
+Clone o repositório
 ```bash
-# Clone o repositório
 git clone https://github.com/gabclima/estufa-inteligente.git
-
-# Entre na pasta do projeto
+```
+Entre na pasta do projeto
+```bash
 cd estufa-inteligente
 ```
 
