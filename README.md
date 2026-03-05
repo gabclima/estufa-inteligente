@@ -177,11 +177,11 @@ const routes = {
 
 ### 3. Hardware (Arduino/ESP32)
 
-1. Abra o arquivo `.ino` localizado na pasta `hardware/` com a **Arduino IDE**.
+1. Abra o arquivo `estufa.ino` localizado na pasta `hardware/` com a **Arduino IDE**.
 
-2. Importe as bibliotecas necessárias presentes na pasta `hardware/Bibliotecas Arduino`:
-   - `DHT-sensor-library-master.zip`
-   - `ArduinoWebsockets-master.zip`
+2. Importe as bibliotecas necessárias presentes na pasta [`hardware/Bibliotecas Arduino`](hardware/Bibliotecas%20Arduino):
+- [`DHT-sensor-library-master.zip`](hardware/Bibliotecas%20Arduino/DHT-sensor-library-master.zip)
+- [`ArduinoWebsockets-master.zip`](hardware/Bibliotecas%20Arduino/ArduinoWebsockets-master.zip)
 
    > No Arduino IDE: **Sketch → Incluir Biblioteca → Adicionar biblioteca .ZIP** e selecione cada arquivo.
 
@@ -202,10 +202,10 @@ const char* websocketServer = "ws://IP_DO_SERVIDOR:81";
 | Sensor DHT22            | 10         |
 | Sensor de Umidade Solo  | A0         |
 | Sensor LDR              | A4         |
-| Relé 1 (Irrigação)      | 8          |
-| Relé 2 (Ventilação)     | 7          |
-| Relé 3 (Iluminação)     | 5          |
-| Relé 4                  | 6          |
+| Relé 1 (Exaustão)       | D5         |
+| Relé 2 (Iluminação)     | D7         |
+| Relé 3 (Irrigação)      | D6         |
+| Relé 4                  | D8         |
 
 **Diagrama de ligação elétrica:**
 
