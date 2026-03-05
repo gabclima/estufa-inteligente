@@ -66,13 +66,12 @@ Certifique-se de ter instalado:
 - **Composer** (gerenciador de dependências PHP)
 - **Node.js** >= 18 e **npm**
 - **Arduino IDE** (ou PlatformIO) com suporte ao ESP32
-- Todos os dispositivos conectados à **mesma rede Wi-Fi**
 
 ---
 
 ## Como Rodar o Projeto
 
-> ⚠️ **Importante:** O backend, o frontend e o ESP32 devem estar na mesma rede local. Ajuste os endereços IP nas configurações antes de iniciar.
+> ⚠️ **Importante:** Caso for rodar o projeto por fins didáticos demonstrativo, certifique-se de que o backend, o frontend e o ESP32 estejam na na mesma rede local. Ajuste os endereços IP nas configurações antes de iniciar. Ou para uso mais avançado em que esteja separado a estufa do servidor, certifique-se de que os endereços IP estejam apontados corretamente.
 
 ### 1. Backend (PHP WebSocket)
 
@@ -86,12 +85,12 @@ cd backend
 composer install
 
 # Inicie o servidor WebSocket
-php server.php
+php websocket.php
 ```
 
-O servidor ficará escutando na porta **81**. Você verá mensagens no terminal indicando novas conexões.
+O servidor ficará escutando na porta **81**, caso precise mudar, altere o valor de **81** para a porta desejada na linha abaixo. Você verá mensagens no terminal indicando novas conexões.
 
-> **Configuração de IP:** No arquivo `server.php`, localize a linha abaixo e substitua pelo IP da máquina onde o servidor está rodando:
+> **Configuração de IP:** No arquivo `websocket.php`, localize a linha abaixo e substitua pelo IP da máquina onde o servidor está rodando:
 > ```php
 > $app = new Ratchet\App("SEU_IP_AQUI", 81, "0.0.0.0");
 > ```
@@ -111,7 +110,7 @@ npm install
 npm run dev
 ```
 
-Acesse a interface em `http://localhost:5173` (ou a porta exibida no terminal).
+Acesse a interface em `http://localhost:3000` (ou a porta exibida no terminal, por padrão é a porta 3000).
 
 > **Configuração do WebSocket:** No arquivo `frontend/src/pages/dashboard.js`, atualize o endereço do servidor WebSocket:
 > ```js
@@ -144,12 +143,12 @@ const routes = {
 
 1. Abra o arquivo `.ino` localizado na pasta `hardware/` com a **Arduino IDE**.
 
-2. Instale as bibliotecas necessárias pelo Gerenciador de Bibliotecas:
-   - `DHT sensor library` (Adafruit)
-   - `ArduinoWebsockets` (Gil Maimon)
+2. Importe as bibliotecas necessárias presentes na pasta `hardware/Bibliotecas Arduino`:
+   - `DHT-sensor-library-master.zip`
+   - `ArduinoWebsockets-master.zip`
 
 3. Atualize as credenciais de rede e o endereço do servidor no início do código:
-
+ 
 ```cpp
 const char* ssid     = "NOME_DA_SUA_REDE";
 const char* password = "SENHA_DA_REDE";
@@ -183,7 +182,6 @@ const char* websocketServer = "ws://IP_DO_SERVIDOR:81";
   - Temperatura > 29°C → liga ventilação
   - Luminosidade < 40% → liga iluminação
 - 🕹️ **Modo manual**: controle individual de cada relé pela interface web
-- 🌗 **Tema claro/escuro** adaptado automaticamente às preferências do sistema
 
 ---
 
@@ -192,7 +190,7 @@ const char* websocketServer = "ws://IP_DO_SERVIDOR:81";
 ```
 estufa-inteligente/
 ├── backend/           # Servidor WebSocket em PHP
-│   ├── server.php
+│   ├── webscoket.php
 │   └── vendor/        # Dependências (gerado pelo Composer)
 ├── frontend/          # Interface web
 │   ├── src/
