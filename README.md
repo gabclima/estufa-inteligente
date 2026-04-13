@@ -64,9 +64,7 @@ A comunicação entre todos os componentes é feita via **WebSocket**. O servido
 ---
 
 ## Pré-requisitos
-
 Certifique-se de ter instalado antes de começar:
-
 | Ferramenta | Versão mínima | Download |
 |---|---|---|
 | **PHP** | 7.4 | [php.net](https://www.php.net/downloads) |
@@ -74,6 +72,20 @@ Certifique-se de ter instalado antes de começar:
 | **Node.js** | 18.x | [nodejs.org](https://nodejs.org/) |
 | **npm** | incluído com Node.js | — |
 | **Arduino IDE** | 2.x | [arduino.cc](https://www.arduino.cc/en/software) |
+
+## Tutoriais
+
+### 🐘 Instalando o PHP no Windows
+
+<a href="https://youtu.be/KdY63NHMAqU?si=1sstEv2B5gHn4tuD">
+  <img src="https://img.youtube.com/vi/KdY63NHMAqU/maxresdefault.jpg" width="500"/>
+</a>
+
+### ⚡ Instalando o Node no Windows
+
+<a href="https://youtu.be/AHaDOafYKgY?si=IErn3tx1SC8UU-xY">
+  <img src="https://img.youtube.com/vi/AHaDOafYKgY/maxresdefault.jpg" width="500"/>
+</a>
 
 > 💡 Para verificar as versões instaladas:
 > ```bash
