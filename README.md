@@ -207,6 +207,14 @@ const char* websocketServer = "ws://IP_DO_SERVIDOR:81";
 
 4. Conecte o ESP32 ao computador, selecione a placa e porta corretas na Arduino IDE e faça o upload do código.
 
+## Tutoriais
+
+### ⚙️ Configurando o Arduino Nano ESP32 na Arduino IDE
+
+<a href="https://youtu.be/JZn006KMmQY?si=60sGVH9zEh7t3ak0&t=55">
+  <img src="https://img.youtube.com/vi/JZn006KMmQY/maxresdefault.jpg" width="500"/>
+</a>
+
 **Pinagem utilizada:**
 
 | Componente              | Pino ESP32 |
